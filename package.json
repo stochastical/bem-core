@@ -38,7 +38,7 @@
     "enb-bh-i18n": "1.0.0-beta2",
     "enb-borschik": "^2.1.0",
     "enb-css": "^1.0.2",
-    "enb-js": "^1.1.0",
+    "enb-js": "^1.1.1",
     "enb-magic-factory": "^0.5.0",
     "enb-magic-platform": "0.6.0",
     "git-hooks": "^1.0.2",
