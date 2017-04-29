@@ -86,7 +86,9 @@ provide(/** @exports */{
         switch(domNode.tagName.toLowerCase()) {
             case 'input':
                 var type = domNode.type;
-                return (type === 'text' || type === 'password') && !domNode.disabled && !domNode.readOnly;
+                var editableInputTypes = ['date', 'datetime-local', 'month', 'number', 'password',
+                    'search', 'tel', 'text', 'time', 'url', 'week'];
+                return (editableInputTypes.indexOf(type) >= 0) && !domNode.disabled && !domNode.readOnly;
 
             case 'textarea':
                 return !domNode.disabled && !domNode.readOnly;
