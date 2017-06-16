@@ -5,6 +5,20 @@
 
 modules.define('dom', ['jquery'], function(provide, $) {
 
+var EDITABLE_INPUT_TYPES = {
+    'datetime-local' : true,
+    date : true,
+    month : true,
+    number : true,
+    password : true,
+    search : true,
+    tel : true,
+    text : true,
+    time : true,
+    url : true,
+    week : true
+};
+
 provide(/** @exports */{
     /**
      * Checks whether a DOM elem is in a context
@@ -85,10 +99,7 @@ provide(/** @exports */{
 
         switch(domNode.tagName.toLowerCase()) {
             case 'input':
-                var type = domNode.type,
-                    editableInputTypes = ['date', 'datetime-local', 'month', 'number', 'password',
-                    'search', 'tel', 'text', 'time', 'url', 'week'];
-                return editableInputTypes.indexOf(type) >= 0 && !domNode.disabled && !domNode.readOnly;
+                return EDITABLE_INPUT_TYPES.hasOwnProperty(domNode.type) && !domNode.disabled && !domNode.readOnly;
 
             case 'textarea':
                 return !domNode.disabled && !domNode.readOnly;
